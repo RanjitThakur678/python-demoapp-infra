@@ -3,7 +3,9 @@ name: 'Create Infra with Terraform'
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - feat-change
   
 
 env:
