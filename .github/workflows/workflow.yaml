@@ -31,6 +31,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: cache clear
+        shell: bash
+        run: |
+          sudo rm -rf /tmp/az*
+          sudo rm -rf ~/.azure
+
+
       - name: Debug Secrets
         run: |
           echo "Client ID: ${{ secrets.AZURE_CLIENT_ID }}"
@@ -38,10 +45,10 @@ jobs:
           echo "Tenant ID: ${{ secrets.AZURE_TENANT_ID }}"
         shell: bash
 
-      - name: azure login
-        shell: bash
-        run: |
-          az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+      # - name: azure login
+      #   shell: bash
+      #   run: |
+      #     az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
           
           
 
@@ -58,11 +65,11 @@ jobs:
 
 
 
-      # # Login to Azure
-      # - name: Login to Azure
-      #   uses: azure/login@v2
-      #   with:
-      #     creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
+      # Login to Azure
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
 
       # Create Terraform backend state storage
       - name: Configure Terraform Backend
