@@ -34,3 +34,10 @@ variable "container_registry_name" {
   description = "Name of the Azure Container Registry"
   type        = string
 }
+
+variable "container_image_tag" {
+  type = string
+  description = "image tag"
+  default = "latest"
+  
+}
