@@ -6,7 +6,6 @@ on:
     branches:
       - acr-add
   
-
 env:
   STORAGE_ACCOUNT_NAME: storagetfstate095
   RESOURCE_GROUP_NAME: tfstate-rg
