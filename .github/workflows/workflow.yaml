@@ -2,9 +2,9 @@ name: 'Infra with Terraform'
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - acr-add
+  push:
+    branches:
+      - acr-add
   
 
 env:
