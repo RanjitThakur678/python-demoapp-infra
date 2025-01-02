@@ -22,3 +22,15 @@ variable "app_service_name" {
   description = "App Service name in Azure"
   default = "python-demo-webapp"
 }
+
+variable "container_image_name" {
+  type = string
+  description = "image name"
+  default = "python-demo-flask-webapp"
+  
+}
+
+variable "container_registry_name" {
+  description = "Name of the Azure Container Registry"
+  type        = string
+}
