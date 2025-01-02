@@ -37,8 +37,7 @@ resource "azurerm_linux_web_app" "app" {
   site_config {
     # app_command_line = "" # Optional, for custom commands if needed.
 
-    linux_fx_version = "DOCKER|${azurerm_container_registry.acr.login_server}/${var.container_image_name}:${var.container_image_tag}"
-
+    
     application_stack {
       python_version = "3.9"
     }

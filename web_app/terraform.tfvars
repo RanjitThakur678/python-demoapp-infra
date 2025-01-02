@@ -1,5 +1,5 @@
 resource_group_name     = "demo-webapp"
-resource_group_location = "East Asia"
+resource_group_location = "West Europe"
 app_service_plan_name   = "my-appserviceplan-linux"
 app_service_name        = "demo-webapp-python"
 container_registry_name    = "pythondemoflaskapp"
