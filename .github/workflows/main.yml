@@ -1,11 +1,11 @@
-name: 'Infra with Terraform'
+name: 'Create Infra with Terraform'
 
 on:
   workflow_dispatch:
   push:
     branches:
       - main
-
+      - feat-change
   
 
 env:
@@ -31,20 +31,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: cache clear
-        shell: bash
-        run: |
-          sudo rm -rf /tmp/az*
-          sudo rm -rf ~/.azure
-
-
-      - name: Debug Secrets
-        run: |
-          echo "Client ID: ${{ secrets.AZURE_CLIENT_ID }}"
-          echo "Subscription ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}"
-          echo "Tenant ID: ${{ secrets.AZURE_TENANT_ID }}"
-        shell: bash
-
       # Login to Azure
       - name: Login to Azure
         uses: azure/login@v2
@@ -54,8 +40,7 @@ jobs:
       # Create Terraform backend state storage
       - name: Configure Terraform Backend
         run: |
-          az group create --name $RESOURCE_GROUP_NAME --location "West Europe"
-
+          az group create --name $RESOURCE_GROUP_NAME --location "East Asia"
           az storage account create --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --sku "Standard_LRS" --encryption-services blob
           az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME
 

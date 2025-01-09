@@ -35,9 +35,4 @@ variable "container_registry_name" {
   type        = string
 }
 
-variable "container_image_tag" {
-  type = string
-  description = "image tag"
-  default = "latest"
-  
-}
+
