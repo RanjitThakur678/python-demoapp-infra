@@ -2,11 +2,10 @@ name: 'Infra with Terraform'
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - acr-add
+  push:
+    branches:
+      - acr-add
   
-
 env:
   STORAGE_ACCOUNT_NAME: storagetfstate095
   RESOURCE_GROUP_NAME: tfstate-rg
