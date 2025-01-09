@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - acr-add
+      - main
   
 env:
   STORAGE_ACCOUNT_NAME: storagetfstate095
@@ -42,14 +42,8 @@ jobs:
           echo "Subscription ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}"
           echo "Tenant ID: ${{ secrets.AZURE_TENANT_ID }}"
         shell: bash
-
-      # - name: azure login
-      #   shell: bash
-      #   run: |
-      #     az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
           
           
-
       # Login to Azure
       - name: Login to Azure
         uses: azure/login@v2

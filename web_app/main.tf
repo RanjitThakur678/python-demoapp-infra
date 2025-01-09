@@ -35,8 +35,6 @@ resource "azurerm_linux_web_app" "app" {
   }
 
   site_config {
-    # app_command_line = "" # Optional, for custom commands if needed.
-
     
     application_stack {
       python_version = "3.9"
