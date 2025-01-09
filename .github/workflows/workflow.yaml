@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-      - feat-change
+
   
 
 env:
@@ -45,13 +45,6 @@ jobs:
           echo "Tenant ID: ${{ secrets.AZURE_TENANT_ID }}"
         shell: bash
 
-      # - name: azure login
-      #   shell: bash
-      #   run: |
-      #     az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
-          
-          
-
       # Login to Azure
       - name: Login to Azure
         uses: azure/login@v2
@@ -61,7 +54,8 @@ jobs:
       # Create Terraform backend state storage
       - name: Configure Terraform Backend
         run: |
-          az group create --name $RESOURCE_GROUP_NAME --location "East Asia"
+          az group create --name $RESOURCE_GROUP_NAME --location "West Europe"
+
           az storage account create --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --sku "Standard_LRS" --encryption-services blob
           az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME
 
