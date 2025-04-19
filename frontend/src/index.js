@@ -1,12 +1,12 @@
 // src/index.js
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';  // Add your styles here
+import ReactDOM from 'react-dom/client';  // Use the new ReactDOM import for React 18
+import './index.css'; // Add your styles here
 import App from './App';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root')); // Create a root
+root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );

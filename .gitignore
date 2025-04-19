@@ -13,3 +13,4 @@
 
 # Ignore logs or crash files
 crash.log
+node_modules
