@@ -1,13 +1,22 @@
 // src/pages/Home.jsx
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   return (
     <div className="home">
+      <Helmet>
+        <title>PikoFern - Home</title>
+        <meta name="description" content="PikoFern is a tech solutions provider covering Web Dev, GenAI, Cloud, Security, and more." />
+      </Helmet>
+
       <header>
         <h1>Welcome to PikoFern.In</h1>
-        <p>We are a Tech Solution provider. We are a group of highly enthusiastic tech experts who want to help people adopt new technologies.</p>
+        <p>
+          We are a Tech Solution provider. We are a group of highly enthusiastic tech experts who want to help people adopt new technologies.
+        </p>
       </header>
+
       <section>
         <h2>Domains</h2>
         <ul>
