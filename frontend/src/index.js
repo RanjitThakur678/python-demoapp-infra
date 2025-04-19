@@ -1,4 +1,3 @@
-// src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';  // Use the new ReactDOM import for React 18
 import './index.css'; // Add your styles here
